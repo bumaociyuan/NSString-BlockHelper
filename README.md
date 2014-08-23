@@ -22,3 +22,8 @@ example
 	    //output : word4 word5
 	    
 **fork and pull request is welcome**
+
+####TODO
+* Add more features
+* Add append int and float type feature
+* Cocoapods support
