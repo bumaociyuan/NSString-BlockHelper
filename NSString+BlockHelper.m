@@ -39,4 +39,11 @@
     return result;
 }
 
+- (BOOL (^)(NSString *))isEqualTo {
+    BOOL (^result)(NSString *) = ^(NSString *input) {
+        return [self isEqualToString:input];
+    };
+    return result;
+}
+
 @end

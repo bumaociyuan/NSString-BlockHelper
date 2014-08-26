@@ -21,8 +21,13 @@
 @property (nonatomic, readonly) NSInteger (^indexOf)(NSString *string);
 
 /**
- *  @relace 1st param in self with 2nd param
+ *  @return relace 1st param in self with 2nd param
  */
 @property (nonatomic, readonly) NSString *(^replace)(NSString *targetString,NSString *withString);
+
+/**
+ *  @return isEqualTo inputString
+ */
+@property (nonatomic, readonly) BOOL (^isEqualTo)(NSString *string);
 
 @end
