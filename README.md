@@ -21,6 +21,9 @@ example
 		NSLog(@"%@",word3.replace(word1,word4).replace(word2,word5));
 	    //output : word4 word5
 	    
+		BOOL isEqual = word4.isEqualTo(word5);
+    	NSLog(@"%d",isEqual);
+	    
 **fork and pull request is welcome**
 
 ####TODO

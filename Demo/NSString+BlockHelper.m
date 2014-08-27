@@ -39,4 +39,16 @@
     return result;
 }
 
+- (BOOL (^)(NSString *))isEqualTo {
+    NSString *originString = self.mutableCopy;
+    BOOL (^result)(NSString *) = ^(NSString *input) {
+        return [originString isEqualToString:input];
+    };
+    return result;
+}
+
+//- (BOOL (^)(NSString *))isEqualTo {
+//    return nil;
+//}
+
 @end
