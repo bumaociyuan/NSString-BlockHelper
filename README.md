@@ -28,5 +28,5 @@ example
 
 ####TODO
 * Add more features
-* Add append int and float type feature
+* ~~Add append int and float type feature~~
 * Cocoapods support
