@@ -13,7 +13,7 @@
 /*!
  *  @brief return self+inputString
  */
-@property (nonatomic, readonly) NSString *(^add)(NSString *string);
+@property (nonatomic, readonly) NSString *(^add)();
 
 /*!
  *  @brief  return self+inputInt.stringValue

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23764EAE19B05B8F000831EC /* NSString+BlockHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 23764EAD19B05B8F000831EC /* NSString+BlockHelper.m */; };
 		FB760A8519A8E9A1008E9AB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB760A8419A8E9A1008E9AB7 /* Foundation.framework */; };
 		FB760A8719A8E9A1008E9AB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB760A8619A8E9A1008E9AB7 /* CoreGraphics.framework */; };
 		FB760A8919A8E9A1008E9AB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB760A8819A8E9A1008E9AB7 /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		FB760AA619A8E9A1008E9AB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB760A8819A8E9A1008E9AB7 /* UIKit.framework */; };
 		FB760AAE19A8E9A1008E9AB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB760AAC19A8E9A1008E9AB7 /* InfoPlist.strings */; };
 		FB760AB019A8E9A1008E9AB7 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB760AAF19A8E9A1008E9AB7 /* DemoTests.m */; };
-		FB760ABB19A8E9C8008E9AB7 /* NSString+BlockHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB760ABA19A8E9C8008E9AB7 /* NSString+BlockHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23764EAC19B05B8F000831EC /* NSString+BlockHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BlockHelper.h"; sourceTree = "<group>"; };
+		23764EAD19B05B8F000831EC /* NSString+BlockHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BlockHelper.m"; sourceTree = "<group>"; };
 		FB760A8119A8E9A1008E9AB7 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB760A8419A8E9A1008E9AB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB760A8619A8E9A1008E9AB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,8 +56,6 @@
 		FB760AAB19A8E9A1008E9AB7 /* DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoTests-Info.plist"; sourceTree = "<group>"; };
 		FB760AAD19A8E9A1008E9AB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FB760AAF19A8E9A1008E9AB7 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
-		FB760AB919A8E9C8008E9AB7 /* NSString+BlockHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BlockHelper.h"; sourceTree = "<group>"; };
-		FB760ABA19A8E9C8008E9AB7 /* NSString+BlockHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BlockHelper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23764EAB19B05B8F000831EC /* NSString+BlockHelper */ = {
+			isa = PBXGroup;
+			children = (
+				23764EAC19B05B8F000831EC /* NSString+BlockHelper.h */,
+				23764EAD19B05B8F000831EC /* NSString+BlockHelper.m */,
+			);
+			name = "NSString+BlockHelper";
+			path = "../NSString+BlockHelper";
+			sourceTree = "<group>";
+		};
 		FB760A7819A8E9A1008E9AB7 = {
 			isa = PBXGroup;
 			children = (
-				FB760AB919A8E9C8008E9AB7 /* NSString+BlockHelper.h */,
-				FB760ABA19A8E9C8008E9AB7 /* NSString+BlockHelper.m */,
+				23764EAB19B05B8F000831EC /* NSString+BlockHelper */,
 				FB760A8A19A8E9A1008E9AB7 /* Demo */,
 				FB760AA919A8E9A1008E9AB7 /* DemoTests */,
 				FB760A8319A8E9A1008E9AB7 /* Frameworks */,
@@ -257,7 +266,7 @@
 				FB760A9B19A8E9A1008E9AB7 /* ViewController.m in Sources */,
 				FB760A9519A8E9A1008E9AB7 /* AppDelegate.m in Sources */,
 				FB760A9119A8E9A1008E9AB7 /* main.m in Sources */,
-				FB760ABB19A8E9C8008E9AB7 /* NSString+BlockHelper.m in Sources */,
+				23764EAE19B05B8F000831EC /* NSString+BlockHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +471,7 @@
 				FB760AB519A8E9A1008E9AB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB760AB619A8E9A1008E9AB7 /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +480,7 @@
 				FB760AB819A8E9A1008E9AB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

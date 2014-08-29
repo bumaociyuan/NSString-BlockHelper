@@ -10,12 +10,30 @@
 
 @implementation NSString (BlockHelper)
 
-- (NSString *(^)(NSString *))add {
+- (NSString *(^)())add {
     NSString *(^result)(NSString *) = ^(NSString *input){
         NSString *output = nil;
-        if ([input isKindOfClass:[NSString class]]) {
-            output = [self stringByAppendingString:input];
+        if ([input isKindOfClass:[NSString class]] || [input isKindOfClass:[NSNumber class]]) {
+            output = [NSString stringWithFormat:@"%@%@",self,input];
         }
+        return output;
+    };
+    return result;
+}
+
+- (NSString *(^)(NSInteger))addInt {
+    NSString *(^result)(NSInteger) = ^(NSInteger input){
+        NSString *output = nil;
+        output = [NSString stringWithFormat:@"%@%d",self,input];
+        return output;
+    };
+    return result;
+}
+
+- (NSString *(^)(CGFloat))addFloat {
+    NSString *(^result)(CGFloat) = ^(CGFloat input){
+        NSString *output = nil;
+        output = [NSString stringWithFormat:@"%@%f",self,input];
         return output;
     };
     return result;
@@ -40,8 +58,9 @@
 }
 
 - (BOOL (^)(NSString *))isEqualTo {
+    NSString *originString = self.mutableCopy;
     BOOL (^result)(NSString *) = ^(NSString *input) {
-        return [self isEqualToString:input];
+        return [originString isEqualToString:input];
     };
     return result;
 }
