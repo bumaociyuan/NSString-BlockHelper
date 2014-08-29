@@ -10,23 +10,33 @@
 
 @interface NSString (BlockHelper)
 
-/**
- *  @return self+inputString
+/*!
+ *  @brief return self+inputString
  */
 @property (nonatomic, readonly) NSString *(^add)(NSString *string);
 
-/**
- *  @return indexOf inputString
+/*!
+ *  @brief  return self+inputInt.stringValue
+ */
+@property (nonatomic, readonly) NSString *(^addInt)(NSInteger input);
+
+/*!
+ *  @brief  return self+inputFloat.stringValue
+ */
+@property (nonatomic, readonly) NSString *(^addFloat)(CGFloat input);
+
+/*!
+ *  @brief return indexOf inputString
  */
 @property (nonatomic, readonly) NSInteger (^indexOf)(NSString *string);
 
-/**
- *  @return relace 1st param in self with 2nd param
+/*!
+ *  @brief return relace 1st param in self with 2nd param
  */
 @property (nonatomic, readonly) NSString *(^replace)(NSString *targetString,NSString *withString);
 
-/**
- *  @return isEqualTo inputString
+/*!
+ *  @brief return isEqualTo inputString
  */
 @property (nonatomic, readonly) BOOL (^isEqualTo)(NSString *string);
 

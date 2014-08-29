@@ -21,6 +21,24 @@
     return result;
 }
 
+- (NSString *(^)(NSInteger))addInt {
+    NSString *(^result)(NSInteger) = ^(NSInteger input){
+        NSString *output = nil;
+        output = [NSString stringWithFormat:@"%@%d",self,input];
+        return output;
+    };
+    return result;
+}
+
+- (NSString *(^)(CGFloat))addFloat {
+    NSString *(^result)(CGFloat) = ^(CGFloat input){
+        NSString *output = nil;
+        output = [NSString stringWithFormat:@"%@%f",self,input];
+        return output;
+    };
+    return result;
+}
+
 - (NSInteger (^)(NSString *))indexOf {
     NSInteger (^result)(NSString *) = ^(NSString *input){
         NSInteger output = NSNotFound;

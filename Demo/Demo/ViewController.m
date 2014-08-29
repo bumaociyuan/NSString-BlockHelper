@@ -38,6 +38,10 @@
     
     BOOL isEqual = word4.isEqualTo(word5);
     NSLog(@"%d",isEqual);
+    
+    NSString *word6 = word1.addInt(3223);
+    NSLog(@"%@",word6);
+    //output : word13223
 }
 
 
