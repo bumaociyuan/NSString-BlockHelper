@@ -4,9 +4,8 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = "NSString+BlockHelper"
   s.homepage = 'https://github.com/bumaociyuan/NSString-BlockHelper'
-  s.authors  = { 'bumaociyuan' =>
-                 'http://bumaociyuan.github.io/' }
-  s.social_media_url = "https://twitter.com/bumaociyuan"
-  s.source   = { :git => 'https://twitter.com/bumaociyuan', :tag => '1.0.0' }
-  s.source_files = 'NSString-BlockHelper.{h,m}'
+  s.authors  = { 'bumaociyuan' => 'http://bumaociyuan.github.io/' }
+  s.source   = { :git => 'https://github.com/bumaociyuan/NSString-BlockHelper.git', :tag => '1.0.0' }
+  s.source_files = 'NSString-BlockHelper/NSString-BlockHelper.{h,m}'
+  s.requires_arc = true
 end
