@@ -10,29 +10,29 @@
 	<string>Demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B13968B2-763A-4C64-AE2F-ABA428E252CE</key>
-		<string>https://github.com/bumaociyuan/NSString-BlockHelper.git</string>
+		<key>9096463F3F9FC0AC77F47F2C3A7E5E4E1C7179DF</key>
+		<string>https://github.com/bumaociyuan/NSString-BlockHelper</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Demo/Demo.xcodeproj/project.xcworkspace</string>
+	<string>Demo/Demo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B13968B2-763A-4C64-AE2F-ABA428E252CE</key>
+		<key>9096463F3F9FC0AC77F47F2C3A7E5E4E1C7179DF</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/bumaociyuan/NSString-BlockHelper.git</string>
+	<string>https://github.com/bumaociyuan/NSString-BlockHelper</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B13968B2-763A-4C64-AE2F-ABA428E252CE</string>
+	<string>9096463F3F9FC0AC77F47F2C3A7E5E4E1C7179DF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B13968B2-763A-4C64-AE2F-ABA428E252CE</string>
+			<string>9096463F3F9FC0AC77F47F2C3A7E5E4E1C7179DF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>NSString-BlockHelper</string>
 		</dict>

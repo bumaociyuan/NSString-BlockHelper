@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NSString+BlockHelper.h"
 
 @interface DemoTests : XCTestCase
 
@@ -14,21 +15,26 @@
 
 @implementation DemoTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testExample {
+    NSString *url = @"https://mtj.baidu.com/web/dashboard";
+    
+    XCTAssert(url.isURL());
+    
+    NSString *email = @"zx12123@qq.com";
+    XCTAssert(email.isEmail());
+    
+    NSString *phoneNumber = @"15281076544";
+    XCTAssert(phoneNumber.isCellPhoneNumber());
 }
 
 @end

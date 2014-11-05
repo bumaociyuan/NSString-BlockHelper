@@ -15,6 +15,8 @@
  */
 @property (nonatomic, readonly) NSString *(^add)();
 
+//@property (nonatomic, readonly) NSString *(^addFormat)(NSString *, (...NS_FORMAT_FUNCTION(2,1)));
+
 /*!
  *  @brief  return self+inputInt.stringValue
  */
@@ -40,4 +42,13 @@
  */
 @property (nonatomic, readonly) BOOL (^isEqualTo)(NSString *string);
 
+////////////////////update 2014.11.05/////////////////////////////////////////////////////////////
+
+@property (nonatomic, readonly) BOOL (^isEmail)();
+@property (nonatomic, readonly) BOOL (^isURL)();
+@property (nonatomic, readonly) BOOL (^isCellPhoneNumber)();
+/*!
+ *  @brief return self is matching regexString
+ */
+@property (nonatomic, readonly) BOOL (^isMatch)(NSString *regexString);
 @end
