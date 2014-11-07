@@ -24,17 +24,17 @@
     return result;
 }
 
-//- (NSString *(^)())addFormat {
-//
-//    NSString *(^result)(NSString *) = ^(NSString *input){
-//        NSString *output = nil;
-//        if ([input isKindOfClass:[NSString class]] || [input isKindOfClass:[NSNumber class]]) {
-//            output = [NSString stringWithFormat:@"%@%@",self,input];
-//        }
-//        return output;
-//    };
-//    return result;
-//}
+- (NSString *(^)(NSString *, ...))addFormat {
+    NSString * (^ result)(NSString *, ...) = ^(NSString *format, ...) {
+        va_list arglist;
+        va_start(arglist, format);
+        NSString *statement = [[NSString alloc] initWithFormat:format arguments:arglist];
+        va_end(arglist);
+        return self.add(statement);
+    };
+    
+    return result;
+}
 
 - (NSString *(^)(NSInteger))addInt {
     NSString * (^ result)(NSInteger) = ^(NSInteger input) {
@@ -65,10 +65,16 @@
     return result;
 }
 
+- (BOOL (^)(NSString *))isContains {
+    BOOL (^ result)(NSString *) = ^ BOOL(NSString *input){
+        return self.indexOf(input) != NSNotFound;
+    };
+    return result;
+}
+
 - (NSString *(^)(NSString *, NSString *))replace {
     NSString * (^ result)(NSString *, NSString *) = ^(NSString *targetString, NSString *withString) {
-        NSMutableString *output = [NSMutableString stringWithString:self];
-        [output replaceOccurrencesOfString:targetString withString:withString options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
+        NSString *output = [self stringByReplacingOccurrencesOfString:targetString withString:withString];
         return output;
     };
     
@@ -80,6 +86,15 @@
     
     BOOL (^ result)(NSString *) = ^(NSString *input) {
         return [originString isEqualToString:input];
+    };
+    return result;
+}
+
+- (BOOL (^)(NSString *))isEqualToIgnoreCase {
+    NSString *originString = self.mutableCopy;
+    
+    BOOL (^ result)(NSString *) = ^BOOL (NSString *input) {
+        return [originString compare:input options:NSCaseInsensitiveSearch] == NSOrderedSame;
     };
     return result;
 }
@@ -97,7 +112,8 @@
     NSString *originString = self.mutableCopy;
     
     BOOL (^ result)() = ^() {
-        return originString.isMatch(@"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+");
+        NSString *string = @"^(http|https|ftp)\\://([a-zA-Z0-9\\.\\-]+(\\:[a-zA-Z0-9\\.&amp;%\\$\\-]+)*@)?((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\\-]+\\.)*[a-zA-Z0-9\\-]+\\.[a-zA-Z]{2,4})(\\:[0-9]+)?(/[^/][a-zA-Z0-9\\.\\,\?\'\\/\\+&amp;%\\$#\\=~_\\-@]*)*$";
+        return originString.isMatch(string);
     };
     return result;
 }
@@ -112,6 +128,21 @@
     return result;
 }
 
+- (BOOL (^)())isNumber {
+    BOOL (^result)() = ^() {
+        BOOL isValid = NO;
+        NSCharacterSet *alphaNumbersSet = [NSCharacterSet decimalDigitCharacterSet];
+        NSCharacterSet *stringSet = [NSCharacterSet characterSetWithCharactersInString:self];
+        isValid = [alphaNumbersSet isSupersetOfSet:stringSet];
+        return isValid;
+    };
+    return result;
+}
+
+//- (BOOL (^)())isIntNumber {
+//    
+//}
+
 - (BOOL (^)(NSString *))isMatch {
     NSString *originString = self.mutableCopy;
     
@@ -120,6 +151,54 @@
         return [predicate evaluateWithObject:originString];
     };
     return result;
+}
+
+- (NSString *(^)())strim {
+    NSString * (^ result)() = ^() {
+        return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    };
+    
+    return result;
+}
+
+- (NSString *(^)())urlEncode {
+    NSString * (^ result)() = ^() {
+        return [self _urlEncode];
+    };
+    
+    return result;
+}
+
+- (NSString *(^)())urlDecode {
+    NSString * (^ result)() = ^() {
+        return [self _urlDecode];
+    };
+    
+    return result;
+}
+
+#pragma mark - helper
+- (NSString *)_urlEncode {
+    return [self urlEncodeUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding {
+    return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                 (__bridge CFStringRef)self,
+                                                                                 NULL,
+                                                                                 (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+                                                                                 CFStringConvertNSStringEncodingToEncoding(encoding));
+}
+
+- (NSString *)_urlDecode {
+    return [self urlDecodeUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)urlDecodeUsingEncoding:(NSStringEncoding)encoding {
+    return (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
+                                                                                                 (__bridge CFStringRef)self,
+                                                                                                 CFSTR(""),
+                                                                                                 CFStringConvertNSStringEncodingToEncoding(encoding));
 }
 
 @end

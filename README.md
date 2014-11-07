@@ -23,7 +23,9 @@ example
 	    
 		BOOL isEqual = word4.isEqualTo(word5);
     	NSLog(@"%d",isEqual);
-	    
+
+more examples in `DemoTests.m`
+
 **fork and pull request is welcome**
 
 ####TODO

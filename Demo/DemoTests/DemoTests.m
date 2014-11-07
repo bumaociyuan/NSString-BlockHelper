@@ -26,15 +26,33 @@
 }
 
 - (void)testExample {
-    NSString *url = @"https://mtj.baidu.com/web/dashboard";
+    NSString *github = @"http://bumaociyuan.github.io";
     
-    XCTAssert(url.isURL());
+    XCTAssert(github.isURL());
     
-    NSString *email = @"zx12123@qq.com";
+    NSString *email = @"zx19880528@gmail.com";
     XCTAssert(email.isEmail());
     
-    NSString *phoneNumber = @"15281076544";
+    NSString *phoneNumber = @"15288888888";
     XCTAssert(phoneNumber.isCellPhoneNumber());
+    
+    NSString *a = @"I'm";
+    XCTAssert(a.addFormat(@" a %@",@"boy").isEqualTo(@"I'm a boy"));
+    XCTAssert(a.isContains(@"'m"));
+    XCTAssert(a.addFormat(@" %d years old",26).isEqualTo(@"I'm 26 years old"));
+    
+    NSString *urlEncoded = @"https%3A%2F%2Fgithub.com%2Fbumaociyuan%2FNSString-BlockHelper";
+    NSString *urlDecoded = @"https://github.com/bumaociyuan/NSString-BlockHelper";
+    XCTAssert(urlEncoded.urlDecode().isEqualTo(urlDecoded));
+    XCTAssert(urlDecoded.urlEncode().isEqualTo(urlEncoded));
+    
+    
+    NSString *uppercaseString = @"UPPERCASESTRING";
+    NSString *lowercaseString = @"uppercaseString";
+    XCTAssert(uppercaseString.isEqualToIgnoreCase(lowercaseString));
+    
+    NSString *numeric = @"012";
+    XCTAssert(numeric.isNumber());
 }
 
 @end
