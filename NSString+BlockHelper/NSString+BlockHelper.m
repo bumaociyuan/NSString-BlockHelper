@@ -55,15 +55,15 @@
 - (NSString *(^)(NSInteger))addInt {
     NSString * (^ result)(NSInteger) = ^(NSInteger input) {
         NSString *output = nil;
-        output = [NSString stringWithFormat:@"%@%d", self, input];
+        output = [NSString stringWithFormat:@"%@%ld", self, (long)input];
         return output;
     };
     
     return result;
 }
 
-- (NSString *(^)(CGFloat))addFloat {
-    NSString * (^ result)(CGFloat) = ^(CGFloat input) {
+- (NSString *(^)(float))addFloat {
+    NSString * (^ result)(float) = ^(float input) {
         NSString *output = nil;
         output = [NSString stringWithFormat:@"%@%f", self, input];
         return output;

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface NSString (BlockHelper)
 
@@ -26,7 +25,7 @@
 /*!
  *  @brief  return self+inputFloat.stringValue
  */
-@property (nonatomic, readonly) NSString *(^addFloat)(CGFloat input);
+@property (nonatomic, readonly) NSString *(^addFloat)(float input);
 
 /*!
  *  @brief return indexOf inputString
