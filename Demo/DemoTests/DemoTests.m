@@ -27,7 +27,6 @@
 
 - (void)testExample {
     NSString *github = @"http://bumaociyuan.github.io";
-    
     XCTAssert(github.isURL());
     
     NSString *email = @"zx19880528@gmail.com";
@@ -51,8 +50,24 @@
     NSString *lowercaseString = @"uppercaseString";
     XCTAssert(uppercaseString.isEqualToIgnoreCase(lowercaseString));
     
-    NSString *numeric = @"012";
-    XCTAssert(numeric.isNumber());
+
+    NSString *intNumber = @"122";
+    XCTAssert(intNumber.isNumber());
+    XCTAssert(intNumber.isIntegerNumber());
+    
+    NSString *floatNumber = @"12.000321";
+    XCTAssert(floatNumber.isDecimalNumber());
+    
+    
+    NSString *fullUrl = @"https://github.com/bumaociyuan/NSString-BlockHelper?__iosbrowser&id=1544&other_id=74010&is_user=true";
+//    get base64 encode string on https://www.base64decode.org/
+    //aHR0cHM6Ly9naXRodWIuY29tL2J1bWFvY2l5dWFuL05TU3RyaW5nLUJsb2NrSGVscGVyP19faW9zYnJvd3NlciZpZD0xNTQ0Jm90aGVyX2lkPTc0MDEwJmlzX3VzZXI9dHJ1ZQ==
+    NSLog(@"%@",fullUrl.paramsInUrl());
+    
+    XCTAssert(fullUrl.paramInUrlWithKey(@"id").isEqualTo(@"1544"));
+    
+
+    XCTAssert(fullUrl.base64EncodedString().isEqualTo(@"aHR0cHM6Ly9naXRodWIuY29tL2J1bWFvY2l5dWFuL05TU3RyaW5nLUJsb2NrSGVscGVyP19faW9zYnJvd3NlciZpZD0xNTQ0Jm90aGVyX2lkPTc0MDEwJmlzX3VzZXI9dHJ1ZQ=="));
 }
 
 @end

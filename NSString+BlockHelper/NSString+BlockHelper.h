@@ -1,12 +1,13 @@
 //
-//  NSString+zxHelper.h
-//  NSStringHelper
+//  NSString+BlockHelper.h
+//  NSString+BlockHelper
 //
 //  Created by zx on 8/23/14.
-//  Copyright (c) 2014 zxstudio. All rights reserved.
+//  Copyright (c) 2014 zx. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (BlockHelper)
 
@@ -52,8 +53,8 @@
 @property (nonatomic, readonly) BOOL (^isURL)();
 @property (nonatomic, readonly) BOOL (^isCellPhoneNumber)();
 @property (nonatomic, readonly) BOOL (^isNumber)();
-@property (nonatomic, readonly) BOOL (^isIntNumber)();
-@property (nonatomic, readonly) BOOL (^isFloatNumber)();
+@property (nonatomic, readonly) BOOL (^isIntegerNumber)();
+@property (nonatomic, readonly) BOOL (^isDecimalNumber)();
 /*!
  *  @brief return self is matching regexString
  */
@@ -64,4 +65,13 @@
 @property (nonatomic, readonly) NSString *(^urlEncode)();
 
 @property (nonatomic, readonly) NSString *(^urlDecode)();
+
+////////////////////update 2014.11.19/////////////////////////////////////////////////////////////
+
+@property (nonatomic, readonly) NSDictionary *(^paramsInUrl)();
+@property (nonatomic, readonly) NSString *(^paramInUrlWithKey)(NSString *key);
+
+@property (nonatomic, readonly) NSString *(^base64EncodedString)();
+@property (nonatomic, readonly) NSString *(^base64DecodedString)();
+@property (nonatomic, readonly) NSData *(^base64DecodedData)();
 @end
