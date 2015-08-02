@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'NSString-BlockHelper'
-  s.version  = '1.0.2'
+  s.version  = '1.0.3'
   s.license  = { :type => 'MIT', :file => 'LICENSE.md' }
   s.summary  = "Category of NSString that allows using block to manipulate NSString"
   s.homepage = 'https://github.com/bumaociyuan/NSString-BlockHelper'
