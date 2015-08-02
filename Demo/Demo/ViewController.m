@@ -28,7 +28,7 @@
     //output : word1 word2
     
     NSInteger loc = word3.indexOf(word2);
-    NSLog(@"%d",loc);
+    NSLog(@"%ld",(long)loc);
     //output : 6
     
     NSString *word4 = @"word4";
